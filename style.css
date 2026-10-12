@@ -2,13 +2,14 @@
    全域設定與變數 (Global Settings & Variables)
    ========================================================================== */
 :root {
-  --bg-color: #f8fafc;
+  --bg-color: #e2e8f0;
   --card-bg: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  --text-main: #0f172a;
+  --text-muted: #475569;
   --primary-color: #2563eb;
-  --border-color: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --primary-dark: #1e40af;
+  --border-color: #cbd5e1;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
   --radius: 12px;
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
@@ -23,75 +24,79 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  background-attachment: fixed;
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 24px 16px;
+  align-items: flex-start;
+  padding: 48px 20px;
 }
 
 /* ==========================================================================
    容器與版面佈局 (Layout & Container)
+   擴大最大寬度，減少兩側留白過多問題
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 820px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 /* ==========================================================================
    頁首 (Header)
+   改為深藍漸層背景，消除整體畫面太白、缺乏層次的問題
    ========================================================================== */
 .header {
-  background-color: var(--card-bg);
-  padding: 32px 24px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  color: #ffffff;
+  padding: 40px 32px;
   border-radius: var(--radius);
-  border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
   text-align: center;
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #ffffff;
   letter-spacing: -0.025em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 0.95rem;
-  color: var(--text-muted);
+  font-size: 1.05rem;
+  color: #dbeafe;
 }
 
 /* ==========================================================================
    主要內容區塊 (Main Content & Cards)
+   擴大內距與文字尺寸，並加入左側重點飾條提升豐富度
    ========================================================================== */
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .card {
   background-color: var(--card-bg);
-  padding: 20px 24px;
+  padding: 26px 32px;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
+  border-left: 6px solid var(--primary-color);
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 8px;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -101,13 +106,13 @@ body {
   content: "";
   display: inline-block;
   width: 4px;
-  height: 1rem;
+  height: 1.1rem;
   background-color: var(--primary-color);
   border-radius: 2px;
 }
 
 .card-text {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-main);
   word-break: break-word;
 }
@@ -117,42 +122,45 @@ body {
    ========================================================================== */
 .footer {
   text-align: center;
-  padding: 12px;
-  font-size: 0.85rem;
+  padding: 16px;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
 /* ==========================================================================
    響應式設計 (Responsive Design - Mobile Friendly)
    ========================================================================== */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   body {
-    padding: 16px 12px;
-    align-items: flex-start;
+    padding: 20px 14px;
+  }
+
+  .container {
+    gap: 16px;
   }
 
   .header {
-    padding: 24px 16px;
+    padding: 28px 20px;
   }
 
   .title {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
 
   .subtitle {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
   }
 
   .card {
-    padding: 16px;
+    padding: 20px 18px;
+    border-left-width: 4px;
   }
 
   .card-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .card-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 }
-
