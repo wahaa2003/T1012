@@ -118,6 +118,43 @@ body {
 }
 
 /* ==========================================================================
+   作品介紹區塊 (Projects Grid & Cards)
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.project-card {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 18px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* ==========================================================================
    頁尾 (Footer)
    ========================================================================== */
 .footer {
@@ -162,5 +199,22 @@ body {
 
   .card-text {
     font-size: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-card {
+    padding: 16px 18px;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
   }
 }
